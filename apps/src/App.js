@@ -11,6 +11,7 @@ function App() {
 
   const addContactListener=(contact)=>{
     console.log(contact);
+    console.log("hello world");
     setContacts([...contacts,contact]);
   }
   // useEffect(()=>{
