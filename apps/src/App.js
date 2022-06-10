@@ -1,5 +1,4 @@
 import React,{useState,useEffect} from 'react';
-import { BrowserRouter as Router,Route } from 'react-router-dom';
 import './App.css';
 import Header from './Header';
 import Addcontact from './addcontact';
@@ -33,12 +32,11 @@ function App() {
 
   return (
     <div>
-      <Router>
+  
       <Header/>
-      <Route path="/add" component={Addcontact}/>
-      {/* // <Addcontact addContactListener={addContactListener}/> */}
+      <Addcontact addContactListener={addContactListener}></Addcontact>
       <ContactList contacts={contacts}/>
-      </Router>
+ 
       </div>
   );
 }
