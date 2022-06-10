@@ -1,43 +1,17 @@
-import React,{useState,useEffect} from 'react';
+import React from "react";
 import './App.css';
-import Header from './Header';
-import Addcontact from './addcontact';
-import ContactList from './ContactList';
+import Login from './Login';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Route, Routes} from "react-router-dom";
 
 function App() {
-  const LOCAL_STORAGE_KEY="contacts";
-  const [contacts,setContacts]=useState([]);
-
-  const addContactListener=(contact)=>{
-    console.log(contact);
-    console.log("hello world");
-    setContacts([...contacts,contact]);
-  }
-  // useEffect(()=>{
-  //   const retriewContacts=JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-  //   if(retriewContacts) {setContacts(retriewContacts)};
-  // },[]
-  // );
-
-  // useEffect(() => {
-  //   const retriveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-  //   if (retriveContacts) setContacts(retriveContacts);
-  // }, []);
-
-  useEffect(()=>{
-    localStorage.setItem(LOCAL_STORAGE_KEY,JSON.stringify(contacts));
-  },[contacts]
-  );
-  
 
   return (
-    <div>
-  
-      <Header/>
-      <Addcontact addContactListener={addContactListener}></Addcontact>
-      <ContactList contacts={contacts}/>
- 
-      </div>
+      <>
+          <Routes>
+              <Route path = '/' element = {<Login/>}/>
+          </Routes>
+      </>
   );
 }
 
